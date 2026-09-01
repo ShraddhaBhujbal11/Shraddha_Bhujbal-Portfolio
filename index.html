@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shraddha Bhujbal — Full-Stack Developer & AI/ML Engineer</title>
+  <meta name="description"
+    content="Portfolio of Shraddha Bhujbal — Full-Stack Developer & AI/ML Engineer based in Pune, India." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <canvas id="neural-network"></canvas>
+
+  <!-- Boot/loader overlay -->
+  <div class="boot-screen" id="bootScreen" aria-hidden="true">
+    <div class="boot-text">
+      <span class="boot-line">$ initializing portfolio<span class="boot-cursor">_</span></span>
+    </div>
+  </div>
+
+  <!-- Top bar (mobile) -->
+  <header class="topbar">
+    <button class="explorer-toggle" id="explorerToggle" aria-label="Toggle file explorer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <span class="topbar-title">shraddha-bhujbal — portfolio</span>
+    <button class="theme-toggle" data-theme-toggle aria-label="Toggle color theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="4" />
+        <path
+          d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+    </button>
+  </header>
+
+  <!-- Floating theme toggle (desktop) -->
+  <button class="theme-toggle theme-toggle-float" data-theme-toggle aria-label="Toggle color theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="4" />
+      <path
+        d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+    </svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+  </button>
+
+  <div class="workspace">
+
+    <!-- Sidebar: file explorer -->
+    <nav class="explorer" id="explorer">
+      <div class="explorer-header">EXPLORER</div>
+      <div class="explorer-project">PORTFOLIO</div>
+      <ul class="file-list">
+        <li><a href="#hero" class="file-item" data-file="hero"><span class="file-icon">◆</span>hero.tsx</a></li>
+        <li><a href="#about" class="file-item" data-file="about"><span class="file-icon">◆</span>about.md</a></li>
+        <li><a href="#education" class="file-item" data-file="education"><span
+              class="file-icon">◆</span>education.json</a></li>
+        <li><a href="#skills" class="file-item" data-file="skills"><span class="file-icon">◆</span>skills.yaml</a></li>
+        <li><a href="#experience" class="file-item" data-file="experience"><span
+              class="file-icon">◆</span>experience.log</a></li>
+        <li><a href="#projects" class="file-item" data-file="projects"><span class="file-icon">◆</span>projects.jsx</a>
+        </li>
+        <li><a href="#achievements" class="file-item" data-file="achievements"><span
+              class="file-icon">◆</span>achievements.txt</a></li>
+        <li><a href="#certifications" class="file-item" data-file="certifications"><span
+              class="file-icon">◆</span>certifications.md</a></li>
+        <li><a href="#contact" class="file-item" data-file="contact"><span class="file-icon">◆</span>contact.sh</a></li>
+      </ul>
+      <div class="explorer-footer">
+        <a href="assets/Shraddha_Bhujbal_Resume.pdf" download class="download-resume">⭳ resume.pdf</a>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="editor">
+
+      <!-- Tabs (desktop decorative) -->
+      <div class="tabs" id="tabs">
+        <div class="tab active" data-tab="hero">hero.tsx</div>
+        <div class="tab" data-tab="about">about.md</div>
+        <div class="tab" data-tab="education">education.json</div>
+        <div class="tab" data-tab="skills">skills.yaml</div>
+        <div class="tab" data-tab="experience">experience.log</div>
+        <div class="tab" data-tab="projects">projects.jsx</div>
+        <div class="tab" data-tab="achievements">achievements.txt</div>
+        <div class="tab" data-tab="certifications">certifications.md</div>
+        <div class="tab" data-tab="contact">contact.sh</div>
+      </div>
+
+      <div class="editor-body">
+
+        <!-- HERO -->
+        <section class="pane hero-pane" id="hero" data-reveal>
+          <div class="gutter" aria-hidden="true">
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+          </div>
+          <div class="code-content hero-content">
+            <p class="code-line"><span class="kw">import</span> { Engineer } <span class="kw">from</span> <span
+                class="str">'pune-india'</span>;</p>
+            <p class="code-line">&nbsp;</p>
+            <p class="code-line"><span class="kw">export default function</span> <span class="fn">Shraddha</span>() {
+            </p>
+            <p class="code-line indent-1"><span class="kw">return</span> (</p>
+            <div class="hero-render indent-2">
+              <p class="eyebrow">// full-stack developer &amp; ai/ml engineer</p>
+              <h1 class="hero-name">Shraddha Bhujbal</h1>
+              <p class="hero-typed"><span id="typedText"></span><span class="type-cursor">|</span></p>
+              <p class="hero-loc">📍 Pune, Maharashtra, India</p>
+              <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Get in touch</a>
+                <a href="assets/Shraddha_Bhujbal_Resume.pdf" download class="btn btn-ghost">Download résumé</a>
+              </div>
+              <div class="hero-social">
+                <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link"
+                  data-social="linkedin">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.56V9h3.56v11.45z" />
+                  </svg>
+                  <span>LinkedIn</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener" aria-label="GitHub" class="social-link" data-social="github">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 .5C5.65.5.5 5.67.5 12.03c0 5.09 3.29 9.4 7.86 10.93.57.1.78-.25.78-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.28-1.7-1.28-1.7-1.04-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.02 1.76 2.68 1.25 3.34.96.1-.74.4-1.25.72-1.54-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.77.12 3.06.74.81 1.18 1.84 1.18 3.1 0 4.44-2.7 5.42-5.27 5.7.42.36.78 1.07.78 2.16 0 1.56-.02 2.82-.02 3.2 0 .3.2.66.79.55A10.53 10.53 0 0 0 23.5 12.03C23.5 5.67 18.35.5 12 .5z" />
+                  </svg>
+                  <span>GitHub</span>
+                </a>
+                <a href="#" target="_blank" rel="noopener" aria-label="Portfolio" class="social-link"
+                  data-social="portfolio">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z" />
+                  </svg>
+                  <span>Portfolio</span>
+                </a>
+              </div>
+            </div>
+            <p class="code-line indent-1">);</p>
+            <p class="code-line">}</p>
+          </div>
+          <a href="#about" class="scroll-cue" aria-label="Scroll to next section"><span></span></a>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="pane" id="about" data-reveal>
+          <div class="pane-header"><span class="pane-filename">about.md</span></div>
+          <div class="pane-inner">
+            <p class="section-eyebrow">01 — About</p>
+            <h2 class="section-title">Who's on the other end of the API...</h2>
+            <div class="about-grid">
+              <p class="about-text">
+                I'm a Computer Engineering undergraduate at MES Wadia College of Engineering, Pune, currently
+                maintaining a <strong>9.48/10 CGPA</strong> while building production-grade software across the stack.
+                My work sits at the intersection of full-stack engineering and applied AI — I like taking a messy,
+                real-world problem (leaky PII, unregulated screen time, scattered health habits) and shipping something
+                people can actually use to fix it.
+              </p>
+              <p class="about-text">
+                At AlgoAnalytics, I've worked on backend services and REST APIs that hold up under real load, and I
+                bring the same rigor to side projects: transformer-based NLP for privacy protection, Chrome extension
+                APIs, and OpenAI-powered wellness tools. I care about clean architecture, tested code, and interfaces
+                that don't get in the way.
+              </p>
+              <div class="about-stats">
+                <div class="stat-card"><span class="stat-num">9.48</span><span class="stat-label">CGPA / 10</span></div>
+                <div class="stat-card"><span class="stat-num">3+</span><span class="stat-label">Featured Projects</span>
+                </div>
+                <div class="stat-card"><span class="stat-num">90%+</span><span class="stat-label">Test Coverage @
+                    Internship</span></div>
+                <div class="stat-card"><span class="stat-num">5+</span><span class="stat-label">PII Categories
+                    Redacted</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section class="pane" id="education" data-reveal>
+          <div class="pane-header"><span class="pane-filename">education.json</span></div>
+          <div class="pane-inner">
+            <p class="section-eyebrow">02 — Education</p>
+            <h2 class="section-title">Academic record</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-top">
+                    <h3>Bachelor of Engineering — Computer Engineering</h3>
+                    <span class="timeline-date">2023 – 2027</span>
+                  </div>
+                  <p class="timeline-org">Modern Education Society's Wadia College of Engineering, Pune</p>
+                  <p class="timeline-meta">CGPA: <strong>9.48 / 10</strong> (through 6th semester)</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-top">
+                    <h3>HSC (12th) — Maharashtra State Board</h3>
+                    <span class="timeline-date">2021 – 2023</span>
+                  </div>
+                  <p class="timeline-org">Nowrosjee Wadia College of Science and Arts, Pune</p>
+                  <p class="timeline-meta">Percentage: <strong>91.67%</strong> — College Topper</p>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                  <div class="timeline-top">
+                    <h3>SSC (10th) — Maharashtra State Board</h3>
+                    <span class="timeline-date">2021</span>
+                  </div>
+                  <p class="timeline-org">Stella Maris School, Pune</p>
+                  <p class="timeline-meta">Percentage: <strong>92.80%</strong></p>
+                </div>
+              </div>
+            </div>
+            <p class="coursework"><span class="coursework-label">relevant_coursework:</span> Data Structures &amp;
+              Algorithms, Object-Oriented Programming, DBMS, Operating Systems, Computer Networks, Machine Learning</p>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="pane" id="skills" data-reveal>
+          <div class="pane-header"><span class="pane-filename">skills.yaml</span></div>
+          <div class="pane-inner">
+            <p class="section-eyebrow">03 — Skills</p>
+            <h2 class="section-title">Technical toolkit</h2>
+            <div class="skills-grid">
+              <div class="skill-group">
+                <h3><span class="yaml-key">languages:</span></h3>
+                <div class="tag-row">
+                  <span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">Python</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h3><span class="yaml-key">frontend:</span></h3>
+                <div class="tag-row">
+                  <span class="tag">React.js</span><span class="tag">HTML5</span><span class="tag">CSS3</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h3><span class="yaml-key">backend:</span></h3>
+                <div class="tag-row">
+                  <span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">REST APIs</span>
+                  <span class="tag">Hugging Face</span>
+                  <span class="tag">JWT Authentication</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h3><span class="yaml-key">databases:</span></h3>
+                <div class="tag-row">
+                  <span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h3><span class="yaml-key">tools:</span></h3>
+                <div class="tag-row">
+                  <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Docker</span><span
+                    class="tag">Postman</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h3><span class="yaml-key">Relevant Coursework:</span></h3>
+                <div class="tag-row">
+                  <span class="tag">DSA</span><span class="tag">OOP</span><span class="tag">Computer Network</span>
+                  <span class="tag">DBMS</span><span class="tag">Operating System</span>
+                  <span class="tag">Machine Learning</span>
+                </div>
+              </div>
+              <div class="skill-group">
+                <h3><span class="yaml-key">ai_ml:</span></h3>
+                <div class="tag-row">
+                  <span class="tag tag-accent">NLP</span><span class="tag tag-accent">BERT</span><span
+                    class="tag tag-accent">Transformers</span><span class="tag tag-accent">OpenAI API</span>
+                  <span class="tag tag-accent">LLMs</span>
+                  <span class="tag tag-accent">RAG Fundamentals</span>
+                  <span class="tag tag-accent">Prompt Engineering</span>
+                  <span class="tag tag-accent">Named Entity Recognition</span>
+                  <span class="tag tag-accent">Scikit-learn</span>
+                  <span class="tag tag-accent">Supervised Learning</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="pane" id="experience" data-reveal>
+          <div class="pane-header"><span class="pane-filename">experience.log</span></div>
+          <div class="pane-inner">
+            <p class="section-eyebrow">04 — Experience</p>
+            <h2 class="section-title">Where I've worked</h2>
+            <div class="log-card">
+              <div class="log-head">
+                <div>
+                  <h3>Full Stack Intern</h3>
+                  <p class="log-org">AlgoAnalytics Pvt. Ltd. — Pune, India</p>
+                </div>
+                <span class="log-date">Sep 2025 – Apr 2026</span>
+              </div>
+              <ul class="log-list">
+                <li><span class="log-prompt">&gt;</span> Engineered Node.js and Python backend services, reducing
+                  data-processing latency by approximately 15% through optimized async execution.</li>
+                <li><span class="log-prompt">&gt;</span> Designed RESTful APIs for media-management workflows and
+                  improved backend response times through performance-focused optimizations.</li>
+                <li><span class="log-prompt">&gt;</span> Wrote Jest unit tests achieving 90%+ line and statement
+                  coverage, improving backend reliability.</li>
+                <li><span class="log-prompt">&gt;</span> Built React.js interfaces consuming internal APIs and validated
+                  end-to-end API contracts across devices.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="pane" id="projects" data-reveal>
+          <div class="pane-header"><span class="pane-filename">projects.jsx</span></div>
+          <div class="pane-inner">
+            <p class="section-eyebrow">05 — Projects</p>
+            <h2 class="section-title">Things I've built</h2>
+            <div class="project-grid">
+
+              <article class="project-card">
+                <div class="project-card-top">
+                  <h3>PII-Shield
+
+                  </h3>
+                  <span class="project-date">Apr 2026 – Jun 2026</span>
+
+                </div>
+                <p class="project-desc">A local AI privacy gateway that scrubs sensitive PII from text prompts before
+                  model dispatch using hybrid NER and regex pipelines.</p>
+                <ul class="project-list">
+                  <li>Engineered a hybrid PII scanning engine using bert-base-NER and regex rules, redacting 5+
+                    sensitive entity types in sub-200ms.</li>
+                  <li>Built a deterministic token-mapping mechanism for 100% lossless data re-hydration without cloud
+                    API dependencies.
+                  </li>
+                </ul>
+                <div class="tag-row">
+                  <span class="tag tag-sm">Transformers.js</span><span class="tag tag-sm">Node.js</span><span
+                    class="tag tag-sm">BERT</span><span class="tag tag-sm">Regex</span><span
+                    class="tag tag-sm">MERN</span>
+                </div>
+                <!-- Bottom Link Action Bar -->
+                <div class="project-card-footer">
+                  <a href="https://github.com/ShraddhaBhujbal11/PII-Shield" target="_blank" rel="noopener"
+                    class="project-footer-link">
+                    View Source Code ↗
+                  </a>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-card-top">
+                  <h3>Gaming Monitor Extension</h3>
+                  <span class="project-date">Jan 2025 – Apr 2025</span>
+                </div>
+                <p class="project-desc">A browser extension that monitors real-time user telemetry to classify online
+                  gaming sessions and detect aggressive behavior patterns.</p>
+                <ul class="project-list">
+                  <li>Trained a 3-class Logistic Regression model on behavioral telemetry vectors (duration, frequency,
+                    session length).</li>
+                  <li>Extracted model weight matrices into a custom JavaScript Softmax engine to execute sub-millisecond
+                    client-side inferences.</li>
+                  <li>Persisted real-time telemetry logs via 60-second background syncs using Chrome Storage APIs.</li>
+                </ul>
+                <div class="tag-row">
+                  <span class="tag tag-sm">Chrome Extension APIs</span>
+                  <span class="tag tag-sm">Scikit-Learn</span>
+                  <span class="tag tag-sm">Logistic Regression</span>
+                  <span class="tag tag-sm">JavaScript</span>
+
+                </div>
+                <!-- Bottom Link Action Bar -->
+                <div class="project-card-footer">
+                  <a href="https://github.com/ShraddhaBhujbal11/gaming-behavior-tracker" target="_blank" rel="noopener"
+                    class="project-footer-link">
+                    View Source Code ↗
+                  </a>
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-card-top">
+                  <h3>HealthHabit</h3>
+                  <span class="project-date">May 2025 – Jun 2025</span>
+                </div>
+                <p class="project-desc">An AI-assisted wellness platform delivering personalized habit recommendations
+                  based on historical user telemetry.
+                </p>
+                <ul class="project-list">
+                  <li>Integrated OpenAI APIs with structured prompt workflows to process user activity trends and
+                    generate tailored recommendations.</li>
+                  <li>Engineered 10+ RESTful APIs secured with JWT authentication and PostgreSQL to manage stateful
+                    progress data.</li>
+                  <li>Designed interactive frontend dashboards in React.js for visual habit tracking and progress
+                    analytics.</li>
+                </ul>
+                <div class="tag-row">
+                  <span class="tag tag-sm">Node.js</span>
+                  <span class="tag tag-sm">OpenAI API</span>
+                  <span class="tag tag-sm">PostgreSQL</span>
+                  <span class="tag tag-sm">Express.js</span>
+                  <span class="tag tag-sm">React.js</span>
+                </div>
+                <!-- Bottom Link Action Bar -->
+                <div class="project-card-footer">
+                  <a href="https://github.com/ShraddhaBhujbal11/HealthHabit" target="_blank" rel="noopener"
+                    class="project-footer-link">
+                    View Source Code ↗
+                  </a>
+              </article>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ACHIEVEMENTS -->
+        <section class="pane" id="achievements" data-reveal>
+          <div class="pane-header"><span class="pane-filename">achievements.txt</span></div>
+          <div class="pane-inner">
+            <p class="section-eyebrow">06 — Achievements</p>
+            <h2 class="section-title">Recognition</h2>
+            <ul class="achievement-list">
+              <li>
+                <span class="achievement-icon">🏆</span>
+                <span>Secured <strong>Rank 667</strong> in the ICPC AlgoQueen Girls Programming Cup 2026.</span>
+              </li>
+              <li>
+                <span class="achievement-icon">🚀</span>
+                <span>Secured <strong>8th Rank</strong> as part of Team VentureSphere in the National Entrepreneurship
+                  Challenge organized by IIT Bombay.</span>
+              </li>
+              <li>
+                <span class="achievement-icon">🌐</span>
+                <span>Selected for <strong>GSSoC 2025</strong> and contributed to multiple open-source projects.</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section class="pane" id="certifications" data-reveal>
+          <div class="pane-header"><span class="pane-filename">certifications.md</span></div>
+          <div class="pane-inner">
+            <p class="section-eyebrow">07 — Certifications</p>
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-grid">
+              <div class="cert-card">
+                <h3>Mastering Generative AI and ChatGPT</h3>
+                <p>GeeksforGeeks</p>
+              </div>
+              <div class="cert-card">
+                <h3>Full Stack Web Development</h3>
+                <p>Udemy</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="pane" id="contact" data-reveal>
+          <div class="pane-header"><span class="pane-filename">contact.sh</span></div>
+          <div class="pane-inner">
+            <p class="section-eyebrow">08 — Contact</p>
+            <h2 class="section-title">Let's build something together</h2>
+            <p class="about-text contact-lead">Open to full-stack and AI/ML internship &amp; collaboration
+              opportunities. The fastest way to reach me is email.</p>
+            <div class="contact-grid">
+
+
+              <!-- GitHub Card -->
+              <a href="https://github.com/ShraddhaBhujbal11" target="_blank" rel="noopener" class="contact-card">
+                <div class="contact-icon">
+                  <i class="fa-brands fa-github"></i>
+                </div>
+                <div class="contact-info">
+                  <span class="contact-label">GitHub</span>
+                  <span class="contact-value">github.com/ShraddhaBhujbal11</span>
+                </div>
+              </a>
+
+              <!-- LinkedIn Card -->
+              <a href="https://www.linkedin.com/in/shraddhabhujbal1" target="_blank" rel="noopener"
+                class="contact-card">
+                <div class="contact-icon">
+                  <i class="fa-brands fa-linkedin"></i>
+                </div>
+                <div class="contact-info">
+                  <span class="contact-label">LinkedIn</span>
+                  <span class="contact-value">linkedin.com/in/shraddhabhujbal1</span>
+                </div>
+              </a>
+
+              <!-- Email Card -->
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shraddhabhujbal311@gmail.com" target="_blank"
+                rel="noopener" class="contact-card">
+                <div class="contact-icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="contact-info">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">shraddhabhujbal311@gmail.com</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <p>Designed &amp; built by Shraddha Bhujbal · © <span id="year"></span></p>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>
